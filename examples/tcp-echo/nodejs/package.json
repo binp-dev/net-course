@@ -1,0 +1,10 @@
+{
+  "name": "tcp-echo",
+  "version": "0.1.0",
+  "description": "TCP echo server",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  }
+}

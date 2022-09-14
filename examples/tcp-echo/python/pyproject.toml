@@ -1,0 +1,12 @@
+[tool.poetry]
+name = "tcp-echo"
+version = "0.1.0"
+description = "TCP echo server"
+authors = []
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.dependencies]
+python = "^3.9"
