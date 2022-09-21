@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+
+<head></head>
+
+<script>
+    const request = () => {
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "/random", true);
+        xhr.onload = (e) => {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    console.log(xhr.responseText);
+                    response = JSON.parse(xhr.responseText);
+                    document.getElementById("log").innerText += `Random number is: ${response.number}\n`;
+                } else {
+                    console.error(xhr.statusText);
+                }
+            }
+        };
+        xhr.onerror = (e) => {
+            console.error(xhr.statusText);
+        };
+        xhr.send(JSON.stringify({
+            begin: document.getElementById("begin").value,
+            end: document.getElementById("end").value,
+        }));
+    }
+</script>
+
+<body>
+    <h1>Hello, World!</h1>
+    <div>
+        Begin: <input type="number" id="begin" value="0">
+        End: <input type="number" id="end" value="1000">
+        <button onclick="request()">Generate</button>
+    </div>
+    <div id="log"></div>
+</body>
+
+</html>
