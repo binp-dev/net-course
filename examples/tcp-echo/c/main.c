@@ -32,7 +32,7 @@ int main()
     }
     if (listen(listenfd, 16) != 0)
     {
-        perror("Bind error");
+        perror("Listen error");
         abort();
     }
     printf("Listening\n");
@@ -91,6 +91,9 @@ int main()
             close(connfd);
             exit(0);
         }
-        close(connfd);
+        else
+        {
+            close(connfd);
+        }
     }
 }
