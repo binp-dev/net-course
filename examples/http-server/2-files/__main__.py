@@ -1,4 +1,4 @@
-from http.server import HTTPServer, BaseHTTPRequestHandler
+from http.server import HTTPServer, BaseHTTPRequestHandler  # , SimpleHTTPRequestHandler
 from pathlib import Path
 import mimetypes
 
@@ -32,6 +32,7 @@ class Handler(BaseHTTPRequestHandler):
 def main() -> None:
     addr = ("localhost", 8080)
     httpd = HTTPServer(addr, Handler)
+    # httpd = HTTPServer(addr, SimpleHTTPRequestHandler)
     print(f"Listening on {addr}")
     httpd.serve_forever()
 
