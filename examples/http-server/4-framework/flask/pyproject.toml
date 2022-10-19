@@ -1,0 +1,13 @@
+[tool.poetry]
+name = "flask-example"
+version = "0.1.0"
+description = "HTTP server example with Flask"
+authors = []
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+flask = "^2.2.2"

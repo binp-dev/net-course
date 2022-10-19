@@ -1,0 +1,13 @@
+[tool.poetry]
+name = "django-example"
+version = "0.1.0"
+description = "HTTP server example with Django"
+authors = []
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+django = "^4.1.2"
