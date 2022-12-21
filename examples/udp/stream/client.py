@@ -18,8 +18,8 @@ class Entry:
 async def main(data: bytes):
     print(f"Sending: {data}")
 
-    server_addr = ("192.168.1.2", 9999)  # put your address here
-    sock = await create_socket(local_addr=("0.0.0.0", 8888))
+    server_addr = ("127.0.0.1", 8888)  # put your address here
+    sock = await create_socket(local_addr=("0.0.0.0", 7777))
 
     chunks = [data[i : (i + chunk_size)] for i in range(0, len(data), chunk_size)]
     chunks += [b""]  # empty chunk means stream end

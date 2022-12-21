@@ -12,11 +12,13 @@ retries = 4
 
 
 async def main():
-    sock = await create_socket(local_addr=("0.0.0.0", 7777))
+    server_addr = ("0.0.0.0", 9999)
+    sock = await create_socket(local_addr=server_addr)
     client_addr = None
 
     chunks: list[bytes | None] = []
 
+    print(f"Server listening on {server_addr}")
     try:
         while True:
             try:
@@ -37,6 +39,7 @@ async def main():
                 if len(chunks) == 0 or chunks[-1] != b"":
                     req.indices.append(len(chunks))
                 if len(req.indices) > 0:
+                    print(f"Send: {req}")
                     sock.sendto(req.store(), client_addr)
                 continue
 
