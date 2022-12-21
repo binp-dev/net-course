@@ -18,8 +18,11 @@ async def main():
     rng = Random(seed)
 
     client_addr = None
-    server_addr = ("192.168.1.2", 7777)  # put your address here
-    sock = await create_socket(local_addr=("0.0.0.0", 9999))
+    proxy_addr = ("0.0.0.0", 8888)  # put your address here
+    server_addr = ("127.0.0.1", 9999)  # put your address here
+    sock = await create_socket(local_addr=proxy_addr)
+    print(f"Bad proxy listening on {proxy_addr} and redirecting to {server_addr}")
+
     try:
         while True:
             data, src = await sock.recvfrom()
